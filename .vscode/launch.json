@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ApprhApplication<apprh>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.apprh.apprh.ApprhApplication",
+            "projectName": "apprh",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
