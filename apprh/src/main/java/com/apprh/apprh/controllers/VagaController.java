@@ -1,8 +1,10 @@
 package com.apprh.apprh.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.apprh.apprh.models.Candidato;
 import com.apprh.apprh.models.Vaga;
@@ -20,7 +22,13 @@ public class VagaController {
         return "vaga/formVaga";
     }
     @RequestMapping(value = "/cadastrarVaga", method = RequestMethod.POST)
-    public String form(){
-        return "";
+    public String form(Vaga vaga, BindingResult resultado, RedirectAttributes atributos){
+        if(resultado.hasErrors()){
+            atributos.addFlashAttribute("mensagem", "verifique os campos");
+            return "redirect:/cadastrarVaga";
+        }
+        vr.save(vaga);
+        atributos.addFlashAttribute("mensagem", "Vaga cadastrada!");
+        return "redirect:/cadastrarVaga";
     }
 }

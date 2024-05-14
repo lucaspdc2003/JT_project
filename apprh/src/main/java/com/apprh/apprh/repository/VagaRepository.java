@@ -1,5 +1,11 @@
 package com.apprh.apprh.repository;
 
-public interface VagaRepository {
+import java.util.List;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import com.apprh.apprh.models.Vaga;
 
+public interface VagaRepository extends CrudRepository<Vaga, Long>{
+    Vaga findByCodigo(long codigo);
+    List<Vaga> findByNome(String nome);
 }
