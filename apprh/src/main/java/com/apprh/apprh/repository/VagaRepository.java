@@ -8,4 +8,5 @@ import com.apprh.apprh.models.Vaga;
 public interface VagaRepository extends CrudRepository<Vaga, Long>{
     Vaga findByCodigo(long codigo);
     List<Vaga> findByNome(String nome);
+    
 }
